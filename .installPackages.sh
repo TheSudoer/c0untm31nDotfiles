@@ -7,6 +7,11 @@ wget https://go.microsoft.com/fwlink/?LinkID=760868 && \
 mv index.html\?LinkID\=760868 vscode.deb && \
 sudo dpkg -i vscode.deb && \
 rm -rf vscode.deb && \
+wget https://discord.com/api/download?platform=linux && \
+mv download\?platform\=linux discord.deb && \
+sudo dpkg -i discord.deb && \
+rm discord.deb && \
+sudo apt-get --fix-broken install && \
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" && \
 brew install go swift && \
 sudo nala install gobjc gobjc++ gdc spotify-client && \
