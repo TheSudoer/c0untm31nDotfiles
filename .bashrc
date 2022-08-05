@@ -1,17 +1,23 @@
+# auto cd when directory is entered
+shopt -s autocd
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
 
-#Set bash colors
-RED=$(tput setaf 1)
-BLUE=$(tput setaf 4)
-GREEN=$(tput setaf 2)
-YELLOW=$(tput setaf 3)
-WHITE=$(tput setaf 7)
-RESET=$(tput sgr0)
-BOLD=$(tput bold)
+# set bash colors
+if tty -s
+then
+	RED=$(tput setaf 1)
+	BLUE=$(tput setaf 4)
+	GREEN=$(tput setaf 2)
+	YELLOW=$(tput setaf 3)
+	WHITE=$(tput setaf 7)
+	RESET=$(tput sgr0)
+	BOLD=$(tput bold)
+fi
 
-PS1="\[$BOLD\]\[$GREEN\]\u\[$BLUE\]@\h\[$RED\][\w]\[$WHITE\]: \[$RESET\]"
+PS1="\[$BOLD\]\[$GREEN\]\u\[$YELLOW\]@\[$BLUE\]\h\[$RED\][\w]\[$WHITE\]: \[$RESET\]"
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -29,4 +35,4 @@ fi
 shopt -s checkwinsize
 
 #Aliases
-alias apt="nala"
+alias apt="sudo nala"
